@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "mcp__ef1c2794-e357-4e0c-95b9-18db23905fbb__netlify-project-services-reader",
+      "mcp__ef1c2794-e357-4e0c-95b9-18db23905fbb__netlify-team-services-reader"
+    ]
+  }
+}
