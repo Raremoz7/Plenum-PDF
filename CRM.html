@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plenum CRM — Plataforma Completa de Relacionamento e Crescimento Comercial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:         #09090b;
+    --card:       #101018;
+    --card-hover: #141420;
+    --border:     #1e1e2e;
+    --purple:     #7c3fe4;
+    --purple-mid: #9a5ef5;
+    --purple-lt:  #b891f8;
+    --purple-dk:  #4e1fa8;
+    --purple-dim: #1a0d46;
+    --white:      #ffffff;
+    --light:      #dcdce8;
+    --mid:        #7878a0;
+    --dim:        #3a3a52;
+    --hdr:        #0c0520;
+    --font-head: 'Bricolage Grotesque', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 99px, rgba(255,255,255,0.12) 99px, rgba(255,255,255,0.12) 100px),
+      repeating-linear-gradient(90deg, transparent, transparent 99px, rgba(255,255,255,0.12) 99px, rgba(255,255,255,0.12) 100px),
+      radial-gradient(circle 900px at 15% 20%, rgba(154,94,245,0.12) 0%, transparent 50%),
+      radial-gradient(circle 800px at 85% 80%, rgba(107,61,181,0.10) 0%, transparent 50%);
+    background-size: 50px 50px, 50px 50px, 100% 100%, 100% 100%;
+    background-attachment: fixed;
+    color: var(--light);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── Grid overlay ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Layout ── */
+  .container { width: 100%; margin: 0 auto; padding: 0 16px; position: relative; z-index: 1; }
+
+  /* ── Section generic ── */
+  section { position: relative; overflow: hidden; }
+
+  /* ── Fade in animation ── */
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 {  }
+  .reveal-delay-2 {  }
+  .reveal-delay-3 {  }
+  .reveal-delay-4 {  }
+  .reveal-delay-5 {  }
+
+  /* ═══════════════════════════════════════════
+     HERO
+  ═══════════════════════════════════════════ */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 32px 60px;
+    background: radial-gradient(ellipse 70% 60% at 80% 10%, #2a1060 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 10% 90%, #1a0840 0%, transparent 55%),
+                var(--bg);
+    position: relative;
+  }
+
+  /* Animated gradient orb */
+  #hero::after {
+    content: '';
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(124,63,228,0.12) 0%, transparent 70%);
+    
+    pointer-events: none;
+  }
+
+
+  /* Grid lines */
+  #hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(124,63,228,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(124,63,228,0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 80% at center, black 30%, transparent 80%);
+  }
+
+  .hero-logo {
+    width: 280px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 32px;
+    filter: drop-shadow(0 0 24px rgba(124,63,228,0.4));
+    position: relative; z-index: 1;
+  }
+
+
+  .hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--purple-mid);
+    margin-bottom: 14px;
+    position: relative; z-index: 1;
+  }
+
+  .hero-title {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-top: -20px;
+    margin-bottom: 36px;
+    position: relative; z-index: 1;
+  }
+
+  .hero-title span {
+    background: linear-gradient(135deg, var(--purple-mid), var(--purple-lt));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--mid);
+    max-width: 540px;
+    margin: 0 auto 36px;
+    line-height: 1.65;
+    position: relative; z-index: 1;
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(124,63,228,0.24), transparent);
+    margin: 0 auto 28px;
+    position: relative; z-index: 1;
+  }
+
+  .hero-pitch {
+    font-size: 15px;
+    color: var(--light);
+    max-width: 500px;
+    margin: 0 auto 44px;
+    line-height: 1.7;
+    position: relative; z-index: 1;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 52px;
+    position: relative; z-index: 1;
+  }
+
+  .tag {
+    padding: 7px 18px;
+    background: rgba(124,63,228,0.12);
+    border: 1px solid rgba(124,63,228,0.2);
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--purple-lt);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+  }
+
+  .hero-meta {
+    font-size: 12px;
+    color: var(--dim);
+    letter-spacing: 0.04em;
+    position: relative; z-index: 1;
+  }
+
+  .hero-meta span { color: var(--mid); }
+
+  .scroll-hint {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    position: relative; z-index: 1;
+  }
+
+  .scroll-hint span { font-size: 11px; color: var(--dim); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .scroll-arrow {
+    width: 24px;
+    height: 24px;
+    border-right: 1.5px solid rgba(124,63,228,0.24);
+    border-bottom: 1.5px solid rgba(124,63,228,0.24);
+    transform: rotate(45deg);
+
+    opacity: 1;
+  }
+
+
+  /* ═══════════════════════════════════════════
+     VISÃO GERAL
+  ═══════════════════════════════════════════ */
+  #overview {
+    padding: 100px 0;
+    background: linear-gradient(180deg, transparent, rgba(124,63,228,0.03) 50%, transparent);
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: var(--font-head);
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--white);
+    margin-bottom: 14px;
+    line-height: 1.15;
+  }
+
+  .section-sub {
+    font-size: 15px;
+    color: var(--mid);
+    max-width: 520px;
+    line-height: 1.65;
+    margin-bottom: 60px;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 14px;
+    margin-bottom: 80px;
+  }
+
+  /* Bento layout */
+  .pillar-card:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 3; }
+  .pillar-card:nth-child(2) { grid-column: 3; grid-row: 1; background: url('./bento-bg2.jpg') center center / cover no-repeat; position: relative; }
+  .pillar-card:nth-child(2)::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,2,15,0.95) 0%, rgba(5,2,15,0.75) 50%, rgba(5,2,15,0.35) 100%); pointer-events: none; z-index: 0; border-radius: 14px; }
+  .pillar-card:nth-child(2) .pillar-body { position: relative; z-index: 1; margin-top: auto; }
+  .pillar-card:nth-child(3) { grid-column: 3; grid-row: 2; background: url('./bento-bg3.jpg') center center / cover no-repeat; position: relative; }
+  .pillar-card:nth-child(3)::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,2,15,0.95) 0%, rgba(5,2,15,0.75) 50%, rgba(5,2,15,0.35) 100%); pointer-events: none; z-index: 0; border-radius: 14px; }
+  .pillar-card:nth-child(3) .pillar-body { position: relative; z-index: 1; margin-top: auto; }
+  .pillar-card:nth-child(4) { grid-column: 1; grid-row: 3; background: url('./bento-bg4.jpg') center center / cover no-repeat; position: relative; }
+  .pillar-card:nth-child(4)::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,2,15,0.95) 0%, rgba(5,2,15,0.75) 50%, rgba(5,2,15,0.35) 100%); pointer-events: none; z-index: 0; border-radius: 14px; }
+  .pillar-card:nth-child(4) .pillar-body { position: relative; z-index: 1; margin-top: auto; }
+  .pillar-card:nth-child(5) { grid-column: 2 / 4; grid-row: 3; background: url('./bento-bg5.jpg') center center / cover no-repeat; position: relative; }
+  .pillar-card:nth-child(5)::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,2,15,0.95) 0%, rgba(5,2,15,0.75) 50%, rgba(5,2,15,0.35) 100%); pointer-events: none; z-index: 0; border-radius: 14px; }
+  .pillar-card:nth-child(5) .pillar-body { position: relative; z-index: 1; margin-top: auto; }
+
+  .pillar-card {
+    background: var(--card);
+    border: 1.5px solid #6b3db5;
+    border-radius: 14px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Card destaque (1) com imagem de fundo */
+  .pillar-card:nth-child(1) {
+    background: url('./bento-bg1.png') center center / cover no-repeat;
+    border-color: rgba(124,63,228,0.35);
+    padding: 40px 36px;
+    justify-content: flex-end;
+  }
+
+  .pillar-card:nth-child(1)::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(5,2,15,0.92) 0%, rgba(5,2,15,0.55) 50%, rgba(5,2,15,0.15) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .pillar-card:nth-child(1) .pillar-body {
+    position: relative;
+    z-index: 1;
+  }
+
+  .pillar-num { display: none; }
+
+  .pillar-body h3 {
+    font-family: var(--font-head);
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+
+  /* Título maior no card destaque */
+  .pillar-card:nth-child(1) .pillar-body h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .pillar-card:nth-child(1) .pillar-body p {
+    font-size: 15px;
+    color: var(--light);
+    max-width: 360px;
+  }
+
+  .pillar-body p { font-size: 13.5px; color: var(--mid); line-height: 1.6; }
+
+  /* Texto sobre imagem — maior contraste */
+  .pillar-card:nth-child(2) .pillar-body h3,
+  .pillar-card:nth-child(3) .pillar-body h3,
+  .pillar-card:nth-child(4) .pillar-body h3,
+  .pillar-card:nth-child(5) .pillar-body h3 {
+    color: var(--white);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+  }
+  .pillar-card:nth-child(2) .pillar-body p,
+  .pillar-card:nth-child(3) .pillar-body p,
+  .pillar-card:nth-child(4) .pillar-body p,
+  .pillar-card:nth-child(5) .pillar-body p {
+    color: var(--light);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.9);
+  }
+
+  /* ── Journey ── */
+  .journey-wrap {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 32px;
+    margin-bottom: 80px;
+  }
+
+  .journey-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--purple-mid);
+    margin-bottom: 32px;
+  }
+
+  .journey-steps {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .journey-steps::before {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: calc(100% / 14);
+    width: calc(100% - 100% / 7);
+    height: 2px;
+    background: linear-gradient(90deg, rgba(124,63,228,0.18), rgba(124,63,228,0.24), rgba(124,63,228,0.18));
+    opacity: 1;
+    z-index: 0;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-circle {
+    width: 44px;
+    height: 44px;
+    background: rgba(124,63,228,0.24);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-head);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    box-shadow: 0 0 20px rgba(124,63,228,0.45);
+    border: 3px solid var(--bg);
+    
+  }
+
+
+  .step-label {
+    font-family: var(--font-head);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--white);
+    text-align: center;
+  }
+
+  .step-desc {
+    font-size: 10.5px;
+    color: var(--mid);
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* ── Module groups index ── */
+  /* === TREE DIAGRAM === */
+  .groups-index {
+    position: relative;
+    padding: 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .groups-index::before { display: none; }
+
+  .group-index-card {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 18px 0;
+    position: relative;
+  }
+
+  /* Ponto na espinha */
+  .group-index-card::before {
+    content: '';
+    position: absolute;
+    left: 76px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgba(124,63,228,0.28);
+    border: 2px solid rgba(124,63,228,0.16);
+    box-shadow: 0 0 10px rgba(124,63,228,0.3);
+    z-index: 1;
+  }
+
+  /* Linha horizontal do ramo */
+  .group-index-card::after {
+    content: '';
+    position: absolute;
+    left: 92px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(124,63,228,0.24), transparent);
+  }
+
+  .group-index-hdr {
+    width: 200px;
+    min-width: 200px;
+    margin-left: 140px;
+    font-family: var(--font-head);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    padding-top: 4px;
+    line-height: 1.3;
+  }
+
+  .group-index-mods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-left: 24px;
+    padding-top: 4px;
+    flex: 1;
+  }
+
+  .group-index-mod {
+    font-size: 11.5px;
+    color: var(--purple-lt);
+    padding: 4px 12px;
+    border: 1px solid rgba(154,94,245,0.35);
+    border-radius: 100px;
+    background: rgba(124,63,228,0.08);
+    white-space: nowrap;
+  }
+
+  /* ═══════════════════════════════════════════
+     GROUP SECTIONS
+  ═══════════════════════════════════════════ */
+  .group-section {
+    padding: 90px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .group-section:nth-child(even) {
+    background: radial-gradient(ellipse 60% 40% at 90% 50%, rgba(124,63,228,0.04) 0%, transparent 70%);
+  }
+
+  .group-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 52px;
+  }
+
+  .group-accent-bar {
+    width: 4px;
+    min-height: 56px;
+    background: linear-gradient(180deg, rgba(124,63,228,0.24), rgba(124,63,228,0.18));
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .group-header-text {}
+
+  .group-header-text .section-label { margin-bottom: 8px; }
+  .group-header-text .section-title { margin-bottom: 6px; }
+  .group-header-text .section-sub { margin-bottom: 0; }
+
+  /* Module cards grid */
+  .modules-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .modules-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .modules-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+  .module-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    
+    position: relative;
+  }
+
+  .module-card::before { display: none; }
+
+
+  .module-card-hdr {
+    background: transparent;
+    padding: 14px 22px;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 42px;
+  }
+
+  .module-card-title {
+    font-family: var(--font-head);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .module-card-body {
+    padding: 0 22px 18px 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .module-desc {
+    font-size: 13.5px;
+    color: var(--mid);
+    line-height: 1.65;
+  }
+
+  .module-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .module-bullet {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 13px;
+    color: var(--light);
+    line-height: 1.5;
+  }
+
+  .bullet-dot {
+    width: 5px;
+    height: 5px;
+    min-width: 5px;
+    background: rgba(124,63,228,0.26);
+    border-radius: 50%;
+    margin-top: 7px;
+    box-shadow: 0 0 6px rgba(124,63,228,0.4);
+  }
+
+  .module-value {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid var(--purple-dim);
+    font-size: 12.5px;
+    font-style: italic;
+    color: var(--purple-lt);
+    display: flex;
+    gap: 7px;
+    align-items: flex-start;
+  }
+
+  .value-arrow {
+    color: var(--purple);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* ═══════════════════════════════════════════
+     CLOSING
+  ═══════════════════════════════════════════ */
+  #closing {
+    padding: 100px 0;
+    background: linear-gradient(180deg, transparent, rgba(124,63,228,0.05) 50%, transparent);
+    border-top: 1px solid var(--border);
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .benefit-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 26px;
+    position: relative;
+    overflow: hidden;
+    
+  }
+
+
+
+
+  .benefit-card h3 {
+    font-family: var(--font-head);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+
+  .benefit-card p {
+    font-size: 14px;
+    color: var(--mid);
+    line-height: 1.65;
+  }
+
+  .benefit-full {
+    background: linear-gradient(135deg, rgba(124,63,228,0.10), rgba(124,63,228,0.06));
+    border: 1px solid rgba(124,63,228,0.2);
+    border-radius: 14px;
+    padding: 32px 40px;
+    text-align: center;
+    margin-bottom: 32px;
+    
+  }
+
+  .benefit-full h3 {
+    font-family: var(--font-head);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .benefit-full p {
+    font-size: 14.5px;
+    color: var(--light);
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* CTA */
+  .cta-block {
+    background: linear-gradient(135deg, rgba(124,63,228,0.22), rgba(124,63,228,0.16));
+    border-radius: 16px;
+    padding: 48px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-block h2 {
+    font-family: var(--font-head);
+    font-size: clamp(22px, 3.5vw, 32px);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    position: relative;
+  }
+
+  .cta-block p {
+    font-size: 15.5px;
+    color: rgba(255,255,255,0.85);
+    max-width: 520px;
+    margin: 0 auto 32px;
+    line-height: 1.65;
+    position: relative;
+  }
+
+  .cta-logo {
+    width: 160px;
+    height: auto;
+    margin-bottom: 28px;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+  }
+  .cta-contacts {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 28px;
+  }
+  .cta-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+  }
+  .cta-contact-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 14px 36px;
+    background: var(--white);
+    color: var(--purple);
+    border-radius: 100px;
+    font-family: var(--font-head);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    
+    position: relative;
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--dim);
+    position: relative; z-index: 1;
+  }
+
+  .footer-brand {
+    font-family: var(--font-head);
+    font-weight: 700;
+    color: var(--purple-lt);
+    font-size: 13px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .modules-grid.cols-3 { grid-template-columns: 1fr; }
+    .modules-grid.cols-2 { grid-template-columns: 1fr; }
+    .groups-index { grid-template-columns: repeat(2, 1fr); }
+    .journey-steps { grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .journey-steps::before { display: none; }
+    .benefits-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .groups-index { grid-template-columns: 1fr; }
+    .journey-steps { grid-template-columns: repeat(2, 1fr); }
+    .container { padding: 0 20px; }
+    .cta-block { padding: 36px 24px; }
+  }
+
+  @media (max-width: 640px) {
+    /* ── Base ── */
+    .page { padding: 60px 16px 160px !important; }
+    .container { padding: 0 16px !important; max-width: 100% !important; }
+
+    /* ── Tipografia ── */
+    .hero-title { font-size: clamp(24px, 5vw, 36px); }
+    .section-title { font-size: clamp(22px, 4.5vw, 28px); }
+
+    /* ── Grids: Single-column ── */
+    .modules-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+    .benefits-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+    .pillars-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+    .pillar-card { grid-column: auto !important; grid-row: auto !important; }
+    .journey-steps { grid-template-columns: repeat(2, 1fr) !important; }
+    .journey-steps::before { display: none !important; }
+    .stat-box { grid-template-columns: 1fr !important; gap: 12px !important; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+    /* ── Cards: Padding aumentado ── */
+    .module-card { padding: 20px 16px !important; }
+    .module-card-title { font-size: 16px !important; }
+    .pillar-card { padding: 20px !important; }
+    .pillar-card h3 { font-size: 18px !important; }
+    .benefit-card { padding: 24px 16px !important; }
+    .benefit-card h3 { font-size: 16px !important; }
+
+    /* ── Hero ── */
+    #hero { min-height: 60vh; padding: 60px 24px 40px !important; }
+
+    /* ── Seções ── */
+    section { padding: 40px 24px !important; }
+
+    /* ── Wheel SVG ── */
+    .wheel-wrap { max-width: 90%; margin: 0 auto; }
+    .groups-wheel { max-width: 100%; height: auto; }
+
+    /* ── Botão Export ── */
+    .export-btn { padding: 16px 24px !important; font-size: 16px !important; }
+
+    /* ── CTA Block ── */
+    .cta-block { padding: 40px 20px !important; }
+
+    /* ── CTA Contacts: Stack em mobile ── */
+    .cta-contacts { flex-direction: column !important; gap: 16px !important; }
+
+    /* ── Group Index: Layout mobile ── */
+    .groups-index { padding: 0 12px !important; }
+    .group-index-card { padding: 14px 0 !important; }
+    .group-index-card::before { display: none !important; }
+    .group-index-card::after { display: none !important; }
+    .group-index-hdr { width: 100% !important; margin-left: 0 !important; font-size: 12px !important; }
+    .group-index-mods { margin-left: 0 !important; }
+
+    /* ── Group Index Card ── */
+    .group-index-card { padding: 14px 8px !important; }
+
+    /* ── Funil: Stack em mobile ── */
+    .funnel-stage { flex-direction: column !important; align-items: flex-start !important; padding: 12px 16px !important; gap: 10px !important; }
+    .funnel-stage-left { flex-direction: column !important; gap: 4px !important; }
+    .funnel-stage-name { font-size: 13px !important; }
+    .funnel-stage-desc { font-size: 11px !important; }
+    .funnel-badge { font-size: 10px !important; padding: 2px 10px !important; white-space: normal !important; }
+  }
+
+  /* ── Botão Export ── */
+  .export-btn {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    background: rgba(124,63,228,0.24);
+    color: var(--white);
+    border: none;
+    border-radius: 100px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 24px rgba(124,63,228,0.3);
+  }
+  .export-btn svg { width: 18px; height: 18px; }
+
+  /* ── Print / PDF ── */
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    .scroll-hint, .scroll-arrow, .export-btn { display: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    body { background: #09090b !important; }
+
+    /* Quebra de página entre seções */
+    section { break-before: page; page-break-before: always; }
+    #hero  { break-before: avoid; page-break-before: avoid; }
+
+    /* Nunca cortar esses elementos no meio */
+    .pillar-card,
+    .module-card,
+    .funnel-wrap,
+    .funnel-stage,
+    .stat-card,
+    .summary-card,
+    .summary-grid,
+    .summary-grid-row2,
+    .stats-grid,
+    .group-index-card,
+    .benefit-card,
+    .benefit-full,
+    .cta-block,
+    .journey-wrap,
+    .group-header,
+    .modules-grid,
+    .pillars-grid {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    /* Grupos de módulos sempre começam em nova página */
+    .group-section { break-before: page; page-break-before: always; }
+    /* TOC ocupa página própria */
+    #toc { break-before: page; page-break-before: always; min-height: auto; padding: 60px 0; }
+    .toc-item { break-inside: avoid; page-break-inside: avoid; }
+  }
+
+  /* === STAT CARDS === */
+  .hero-stats {
+    width: 100%;
+    max-width: 860px;
+    margin-top: 56px;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .stat-card {
+    padding: 40px 28px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+    background: var(--card);
+    position: relative;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(124,63,228,0.18), rgba(124,63,228,0.24));
+  }
+  .stat-card:last-child { border-right: none; }
+  .stat-number {
+    font-family: var(--font-head);
+    font-size: 54px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, var(--purple-mid), var(--purple-lt));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .stat-label { font-size: 13px; color: var(--mid); font-weight: 500; }
+
+  /* === TOC === */
+  #toc {
+    padding: 80px 0 80px;
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  #toc .container { width: 100%; }
+  .toc-header { margin-bottom: 48px; }
+  .toc-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .toc-item {
+    display: grid;
+    grid-template-columns: 48px 28px 1fr;
+    grid-template-rows: auto auto;
+    align-items: start;
+    gap: 0 12px;
+    padding: 22px 28px;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    background: var(--card);
+    position: relative;
+  }
+  .toc-item:last-child { border-bottom: none; }
+  .toc-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--purple-dk), var(--purple-mid));
+    opacity: 0;
+  }
+  .toc-num {
+    font-family: var(--font-head);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--purple-mid);
+    letter-spacing: 0.06em;
+    grid-column: 1;
+    grid-row: 1;
+    padding-top: 2px;
+  }
+  .toc-arrow {
+    font-size: 16px;
+    color: var(--purple-mid);
+    opacity: 0.6;
+    font-weight: 300;
+    grid-column: 2;
+    grid-row: 1;
+    padding-top: 2px;
+  }
+  .toc-title {
+    font-family: var(--font-head);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.3;
+    grid-column: 3;
+    grid-row: 1;
+  }
+  .toc-desc {
+    font-size: 12px;
+    color: var(--mid);
+    grid-column: 3;
+    grid-row: 2;
+    text-align: left;
+    margin-top: 5px;
+  }
+
+  /* === SUMARIO VISUAL === */
+  #summary {
+    padding: 80px 0;
+    background: linear-gradient(180deg, transparent, rgba(124,63,228,0.04) 50%, transparent);
+  }
+  .wheel-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 52px;
+  }
+  .groups-wheel {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 40px;
+  }
+  .summary-grid .summary-card:nth-child(4),
+  .summary-grid .summary-card:nth-child(5) {
+    grid-column: auto;
+  }
+  .summary-grid-row2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+    max-width: 66.66%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .summary-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 16px 24px;
+    text-align: center;
+  }
+  .summary-icon {
+    width: 52px; height: 52px;
+    background: var(--purple-dim);
+    border: 1px solid rgba(124,63,228,0.25);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+  }
+  .summary-icon svg { width: 26px; height: 26px; }
+  .summary-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--purple);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .summary-name {
+    font-family: var(--font-head);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+  .summary-mods {
+    font-size: 11px;
+    color: var(--purple-mid);
+    font-weight: 600;
+    background: var(--purple-dim);
+    border-radius: 100px;
+    padding: 3px 10px;
+    display: inline-block;
+  }
+
+  /* === FUNIL COMERCIAL === */
+  .funnel-wrap { margin: 60px 0 0; padding-bottom: 60px; }
+  .funnel-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 28px;
+    text-align: center;
+  }
+  .funnel-stages { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .funnel-stage {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 14px 24px;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .funnel-stage-left { display: flex; align-items: center; gap: 14px; }
+  .funnel-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--purple-mid); flex-shrink: 0; }
+  .funnel-stage-name { font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--white); }
+  .funnel-stage-desc { font-size: 12px; color: var(--mid); }
+  .funnel-badge {
+    font-size: 11px; font-weight: 600; color: var(--purple-mid);
+    background: var(--purple-dim); border-radius: 100px; padding: 3px 12px; white-space: nowrap;
+  }
+
+  /* === ICONES DE MODULO === */
+  .module-icon {
+    width: 42px; height: 42px;
+    background: transparent;
+    border: none;
+    border-radius: 11px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .module-icon svg { width: 22px; height: 22px; }
+
+
+  /* ═══════════════════════════════════════════
+     SISTEMA DE PÁGINAS A4
+  ═══════════════════════════════════════════ */
+  body {
+    background: #06060a;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 99px, rgba(255,255,255,0.12) 99px, rgba(255,255,255,0.12) 100px),
+      repeating-linear-gradient(90deg, transparent, transparent 99px, rgba(255,255,255,0.12) 99px, rgba(255,255,255,0.12) 100px),
+      radial-gradient(circle 900px at 15% 20%, rgba(154,94,245,0.12) 0%, transparent 50%),
+      radial-gradient(circle 800px at 85% 80%, rgba(107,61,181,0.10) 0%, transparent 50%);
+    background-size: 50px 50px, 50px 50px, 100% 100%, 100% 100%;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .page {
+    width: 100%;
+    height: auto;
+    padding: 24px 16px;
+    position: relative;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    flex-shrink: 0;
+    justify-content: flex-start;
+  }
+
+  .page-center  { align-items: center; text-align: center; }
+  .page-spread  { justify-content: space-between; }
+  .page-start   { justify-content: center; }
+
+  .page section,
+  .page #hero, .page #overview, .page #toc,
+  .page #summary, .page #closing, .page .group-section {
+    padding: 0 !important;
+    min-height: unset !important;
+    background: transparent !important;
+    overflow: visible !important;
+  }
+  .page .container { padding: 0 !important; max-width: 100% !important; }
+
+  @media print {
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    body { gap: 0; background: #09090b; }
+    .page { page-break-after: always; break-after: page; box-shadow: none; }
+    .page:last-of-type { page-break-after: avoid; break-after: avoid; }
+    .export-btn { display: none !important; }
+  }
+
+  /* ── Compressão para módulos dentro de página A4 ── */
+  .page #summary { margin-bottom: 40px !important; }
+  .page .summary-grid { margin-top: 18px !important; gap: 16px !important; }
+  .page .summary-card { padding: 16px !important; font-size: 10px !important; }
+  .page .summary-name { font-size: 10px !important; }
+  .page .summary-mods { font-size: 9px !important; }
+  .page .section-title { margin: 6px 0 !important; font-size: 16px !important; }
+  .page .pillars-grid { margin-top: 12px !important; gap: 16px !important; }
+  .page .pillar-card { padding: 14px !important; }
+  .page .pillar-num { font-size: 14px !important; }
+  .page .pillar-body h3 { font-size: 11px !important; margin: 6px 0 !important; }
+  .page .pillar-body p { font-size: 10px !important; margin: 0 !important; line-height: 1.3 !important; }
+  .page .group-header { margin-bottom: 32px !important; }
+  .page .group-accent-bar { height: 3px !important; margin-bottom: 22px !important; }
+  .page .section-sub { margin-bottom: 14px !important; font-size: 13px !important; }
+  .page .modules-grid { gap: 42px !important; }
+  .page .module-card { padding: 0 !important; }
+  .page .module-card-hdr { padding: 18px 20px !important; margin-bottom: 0 !important; gap: 16px !important; }
+  .page .module-card-body { padding: 0 20px 18px 20px !important; gap: 16px !important; }
+  .page .module-icon { width: 28px !important; height: 28px !important; }
+  .page .module-icon svg { width: 14px !important; height: 14px !important; }
+  .page .module-card-title { font-size: 12px !important; margin: 0 !important; }
+  .page .module-desc { font-size: 11px !important; margin-bottom: 8px !important; line-height: 1.4 !important; }
+  .page .module-bullets { gap: 7px !important; margin-top: 8px !important; }
+  .page .module-bullet { font-size: 11px !important; line-height: 1.35 !important; }
+  .page .bullet-dot { width: 4px !important; height: 4px !important; margin-top: 4px !important; }
+  .page .module-value { margin-top: 12px !important; font-size: 11px !important; padding: 10px 14px !important; }
+  .page .value-arrow { font-size: 12px !important; }
+
+  /* TOC comprimido */
+  .page .toc-item { padding: 16px 22px !important; }
+  .page .toc-num { font-size: 13px !important; }
+  .page .toc-title { font-size: 14px !important; }
+  .page .toc-desc { font-size: 11px !important; }
+  .page .toc-list { gap: 16px !important; }
+  .page #toc h2 { font-size: 28px !important; margin-bottom: 32px !important; }
+  .page #toc { padding-bottom: 24px !important; }
+
+  /* Summary comprimido */
+  .page .summary-card { padding: 22px 16px 20px !important; }
+  .page .summary-icon { width: 40px !important; height: 40px !important; margin-bottom: 14px !important; }
+  .page .summary-icon svg { width: 20px !important; height: 20px !important; }
+  .page .summary-name { font-size: 11px !important; }
+  .page #summary .section-title { font-size: 26px !important; }
+  .page #summary .section-sub { margin-bottom: 28px !important; }
+  .page .summary-grid { margin-top: 28px !important; gap: 16px !important; }
+  .page .summary-grid-row2 { margin-top: 16px !important; gap: 16px !important; }
+
+  /* Closing comprimido */
+  .page .benefits-grid { gap: 14px !important; margin-bottom: 18px !important; }
+  .page .benefit-card { padding: 18px !important; }
+  .page .benefit-card h3 { font-size: 13px !important; margin-bottom: 8px !important; }
+  .page .benefit-card p { font-size: 12px !important; line-height: 1.45 !important; }
+  .page .benefit-full { padding: 16px 22px !important; margin-bottom: 20px !important; }
+  .page .benefit-full h3 { font-size: 13px !important; }
+  .page .benefit-full p { font-size: 12px !important; }
+  .page .cta-block { padding: 28px 32px !important; }
+  .page .cta-block h2 { font-size: 20px !important; margin-bottom: 10px !important; }
+  .page .cta-block p { font-size: 13px !important; }
+  .page .cta-logo { height: 28px !important; margin-bottom: 14px !important; }
+
+  /* Overview pilares comprimido */
+  .page .pillars-grid { gap: 14px !important; margin-bottom: 0 !important; }
+  .page .pillar-card { padding: 18px 20px !important; }
+  .page .section-title { margin-bottom: 14px !important; }
+
+  /* ── Ajuste fino para eliminar overflows restantes ── */
+  /* Páginas com 3 colunas: ocultar bullets 4 e 5 (info secundária) */
+  .page .modules-grid.cols-3 .module-bullet:nth-child(n+4) { display: none !important; }
+
+  /* Ajustes adicionais para cols-3 */
+  .page .modules-grid.cols-3 .module-value { margin-top: 6px !important; padding: 5px 8px !important; font-size: 10px !important; }
+  .page .modules-grid.cols-3 .module-desc { 
+    display: -webkit-box !important; 
+    -webkit-line-clamp: 2 !important; 
+    -webkit-box-orient: vertical !important; 
+    overflow: hidden !important; 
+  }
+  .page .group-header { margin-bottom: 16px !important; }
+
+  /* ── Compressão página 5: funil + groups-index ── */
+  .page .funnel-wrap { margin-top: 0 !important; padding-bottom: 0 !important; }
+  .page .funnel-label { margin-bottom: 16px !important; }
+  .page .funnel-stages { gap: 4px !important; }
+  .page .funnel-stage { padding: 10px 18px !important; }
+  .page .funnel-stage-name { font-size: 13px !important; }
+  .page .funnel-stage-desc { font-size: 11px !important; }
+  .page .funnel-badge { font-size: 10px !important; padding: 3px 10px !important; }
+  .page .groups-index { gap: 8px !important; margin-top: 0 !important; }
+  .page .group-index-card { padding: 10px 14px !important; }
+  .page .group-index-hdr { font-size: 12px !important; margin-bottom: 6px !important; }
+  .page .group-index-mod { font-size: 10px !important; padding: 2px 8px !important; }
+
+</style>
+</head>
+<body>
+
+<!-- ══ PÁGINA 1 — CAPA ══ -->
+<div class="page page-center">
+  <section id="hero">
+  <img src="./logo.svg" alt="Plenum" class="hero-logo reveal">
+  <h1 class="hero-title">CRM</h1>
+  <p class="hero-eyebrow reveal reveal-delay-1">Plataforma Comercial</p>
+  
+  <p class="hero-sub reveal reveal-delay-3">Plataforma Completa de Relacionamento<br>e Crescimento Comercial</p>
+  <div class="hero-divider reveal reveal-delay-3"></div>
+  <p class="hero-pitch reveal reveal-delay-4">
+    Da entrada do lead ao fechamento — com inteligência, automação
+    e visibilidade completa em cada etapa da jornada comercial.
+  </p>
+  <div class="tags reveal reveal-delay-5">
+    <span class="tag">Centralização</span>
+    <span class="tag">Automação</span>
+    <span class="tag">Omnichannel</span>
+    <span class="tag">Analytics</span>
+    <span class="tag">Escalabilidade</span>
+  </div>
+  <div class="stats-grid hero-stats reveal reveal-delay-5">
+    <div class="stat-card">
+      <div class="stat-number">16</div>
+      <div class="stat-label">Módulos integrados</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">5</div>
+      <div class="stat-label">Grupos funcionais</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">360°</div>
+      <div class="stat-label">Visão do cliente</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">1</div>
+      <div class="stat-label">Plataforma, todas as frentes</div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ══ PÁGINA 2 — SUMÁRIO ══ -->
+<div class="page page-spread">
+  <section id="toc">
+  <div class="container">
+    <div class="toc-header">
+      <p class="section-label">Neste documento</p>
+      <h2 class="section-title">Sumário</h2>
+    </div>
+    <div class="toc-grid">
+      <a href="#summary" class="toc-item">
+        <span class="toc-num">01</span>
+        <span class="toc-title">Visão Geral da Plataforma</span>
+        <span class="toc-arrow">→</span>
+      </a>
+      <a href="#overview" class="toc-item">
+        <span class="toc-num">02</span>
+        <span class="toc-title">O que o Plenum entrega</span>
+        <span class="toc-arrow">→</span>
+      </a>
+      <a href="#group-01" class="toc-item">
+        <span class="toc-num">03</span>
+        <span class="toc-title">Grupo 01 — Operação Comercial</span>
+        <span class="toc-desc">Dashboard · Leads · Contatos · Tarefas · Calendário</span>
+        <span class="toc-arrow">→</span>
+      </a>
+      <a href="#group-02" class="toc-item">
+        <span class="toc-num">04</span>
+        <span class="toc-title">Grupo 02 — Comunicação &amp; Atendimento</span>
+        <span class="toc-desc">Chat · E-mail · Chamadas</span>
+        <span class="toc-arrow">→</span>
+      </a>
+      <a href="#group-03" class="toc-item">
+        <span class="toc-num">05</span>
+        <span class="toc-title">Grupo 03 — Inteligência &amp; IA</span>
+        <span class="toc-desc">IA · Rastreamento · ROI Dashboard</span>
+        <span class="toc-arrow">→</span>
+      </a>
+      <a href="#group-04" class="toc-item">
+        <span class="toc-num">06</span>
+        <span class="toc-title">Grupo 04 — Gestão &amp; Análise</span>
+        <span class="toc-desc">Vendedores · Relatórios · Produtos</span>
+        <span class="toc-arrow">→</span>
+      </a>
+      <a href="#group-05" class="toc-item">
+        <span class="toc-num">07</span>
+        <span class="toc-title">Grupo 05 — Automação &amp; Configuração</span>
+        <span class="toc-desc">Workflows · Configurações</span>
+        <span class="toc-arrow">→</span>
+      </a>
+      <a href="#closing" class="toc-item">
+        <span class="toc-num">08</span>
+        <span class="toc-title">Contato</span>
+        <span class="toc-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ══ PÁGINA 3/4 — ESTRUTURA + O QUE ENTREGAMOS ══ -->
+<div class="page page-start">
+  <section id="summary" style="margin-bottom: 24px;">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Estrutura da plataforma</p>
+        <h2 class="section-title">5 Grupos · 16 Módulos</h2>
+      </div>
+      <div class="wheel-wrap">
+        <svg viewBox="0 0 560 560" class="groups-wheel" xmlns="http://www.w3.org/2000/svg" overflow="visible">
+
+          <!-- Seg 0: Operação Comercial (-90° → -18°) -->
+          <path d="M 280,190 L 280,50 A 230 230 0 0 1 498.74,208.93 L 365.60,252.19 A 90 90 0 0 0 280,190 Z"
+                fill="rgba(124,63,228,0.30)" stroke="#09090b" stroke-width="4" stroke-linejoin="round"/>
+
+          <!-- Seg 1: Comunicação & Atendimento (-18° → 54°) -->
+          <path d="M 365.60,252.19 L 498.74,208.93 A 230 230 0 0 1 415.19,466.07 L 332.90,352.81 A 90 90 0 0 0 365.60,252.19 Z"
+                fill="rgba(124,63,228,0.27)" stroke="#09090b" stroke-width="4" stroke-linejoin="round"/>
+
+          <!-- Seg 2: Inteligência & IA (54° → 126°) -->
+          <path d="M 332.90,352.81 L 415.19,466.07 A 230 230 0 0 1 144.81,466.07 L 227.10,352.81 A 90 90 0 0 0 332.90,352.81 Z"
+                fill="rgba(124,63,228,0.24)" stroke="#09090b" stroke-width="4" stroke-linejoin="round"/>
+
+          <!-- Seg 3: Gestão & Análise (126° → 198°) -->
+          <path d="M 227.10,352.81 L 144.81,466.07 A 230 230 0 0 1 61.26,208.93 L 194.40,252.19 A 90 90 0 0 0 227.10,352.81 Z"
+                fill="rgba(124,63,228,0.28)" stroke="#09090b" stroke-width="4" stroke-linejoin="round"/>
+
+          <!-- Seg 4: Automação & Configuração (198° → 270°) -->
+          <path d="M 194.40,252.19 L 61.26,208.93 A 230 230 0 0 1 280,50 L 280,190 A 90 90 0 0 0 194.40,252.19 Z"
+                fill="rgba(124,63,228,0.26)" stroke="#09090b" stroke-width="4" stroke-linejoin="round"/>
+
+          <!-- Anel decorativo externo -->
+          <circle cx="280" cy="280" r="232" fill="none" stroke="rgba(124,63,228,0.2)" stroke-width="1"/>
+
+          <!-- Centro -->
+          <circle cx="280" cy="280" r="88" fill="#09090b"/>
+          <circle cx="280" cy="280" r="88" fill="none" stroke="#7c3fe4" stroke-width="1.5"/>
+          <text x="280" y="265" text-anchor="middle" dominant-baseline="central" fill="#b891f8" font-family="'Bricolage Grotesque',sans-serif" font-size="34" font-weight="800" letter-spacing="-1">5</text>
+          <text x="280" y="282" text-anchor="middle" dominant-baseline="central" fill="#9a5ef5" font-family="'DM Sans',sans-serif" font-size="9.5" font-weight="600" letter-spacing="2">GRUPOS</text>
+          <text x="280" y="299" text-anchor="middle" dominant-baseline="central" fill="#7878a0" font-family="'DM Sans',sans-serif" font-size="9">16 módulos</text>
+
+          <!-- Label Seg 0 (topo direita) -->
+          <text x="378" y="134" text-anchor="middle" fill="#dbc5ff" font-family="'Bricolage Grotesque',sans-serif" font-size="13" font-weight="800" letter-spacing="1">01</text>
+          <text x="378" y="149" text-anchor="middle" fill="white" font-family="'DM Sans',sans-serif" font-size="11" font-weight="600">Operação</text>
+          <text x="378" y="162" text-anchor="middle" fill="white" font-family="'DM Sans',sans-serif" font-size="11" font-weight="600">Comercial</text>
+          <text x="378" y="177" text-anchor="middle" fill="#c4a0ff" font-family="'DM Sans',sans-serif" font-size="9.5">5 módulos</text>
+
+          <!-- Label Seg 1 (direita) -->
+          <text x="437" y="314" text-anchor="middle" fill="#dbc5ff" font-family="'Bricolage Grotesque',sans-serif" font-size="13" font-weight="800" letter-spacing="1">02</text>
+          <text x="437" y="329" text-anchor="middle" fill="white" font-family="'DM Sans',sans-serif" font-size="11" font-weight="600">Comunicação</text>
+          <text x="437" y="342" text-anchor="middle" fill="white" font-family="'DM Sans',sans-serif" font-size="11" font-weight="600">&amp; Atendimento</text>
+          <text x="437" y="357" text-anchor="middle" fill="#c4a0ff" font-family="'DM Sans',sans-serif" font-size="9.5">3 módulos</text>
+
+          <!-- Label Seg 2 (baixo) -->
+          <text x="280" y="419" text-anchor="middle" fill="#dbc5ff" font-family="'Bricolage Grotesque',sans-serif" font-size="13" font-weight="800" letter-spacing="1">03</text>
+          <text x="280" y="434" text-anchor="middle" fill="white" font-family="'DM Sans',sans-serif" font-size="11" font-weight="600">Inteligência</text>
+          <text x="280" y="447" text-anchor="middle" fill="white" font-family="'DM Sans',sans-serif" font-size="11" font-weight="600">&amp; IA</text>
+          <text x="280" y="462" text-anchor="middle" fill="#c4a0ff" font-family="'DM Sans',sans-serif" font-size="9.5">3 módulos</text>
+
+          <!-- Label Seg 3 (esquerda) -->
+          <text x="123" y="314" text-anchor="middle" fill="#dbc5ff" font-family="'Bricolage Grotesque',sans-serif" font-size="13" font-weight="800" letter-spacing="1">04</text>
+          <text x="123" y="329" text-anchor="middle" fill="white" font-family="'DM Sans',sans-serif" font-size="11" font-weight="600">Gestão</text>
+          <text x="123" y="342" text-anchor="middle" fill="white" font-family="'DM Sans',sans-serif" font-size="11" font-weight="600">&amp; Análise</text>
+          <text x="123" y="357" text-anchor="middle" fill="#c4a0ff" font-family="'DM Sans',sans-serif" font-size="9.5">3 módulos</text>
+
+          <!-- Label Seg 4 (topo esquerda) -->
+          <text x="182" y="134" text-anchor="middle" fill="#dbc5ff" font-family="'Bricolage Grotesque',sans-serif" font-size="13" font-weight="800" letter-spacing="1">05</text>
+          <text x="182" y="149" text-anchor="middle" fill="white" font-family="'DM Sans',sans-serif" font-size="11" font-weight="600">Automação</text>
+          <text x="182" y="162" text-anchor="middle" fill="white" font-family="'DM Sans',sans-serif" font-size="11" font-weight="600">&amp; Config.</text>
+          <text x="182" y="177" text-anchor="middle" fill="#c4a0ff" font-family="'DM Sans',sans-serif" font-size="9.5">2 módulos</text>
+
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="overview">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Por que o Plenum CRM?</p>
+        <h2 class="section-title">O que o Plenum entrega na prática</h2>
+        <p class="section-sub">Cinco pilares que transformam a forma como sua equipe vende, atende e cresce.</p>
+      </div>
+      <div class="pillars-grid">
+      <div class="pillar-card reveal reveal-delay-1">
+        <div class="pillar-num">1</div>
+        <div class="pillar-body">
+          <h3>Centralizar dados e histórico</h3>
+          <p>Uma única base de verdade para toda a jornada do cliente — acessível por todo o time.</p>
+        </div>
+      </div>
+      <div class="pillar-card reveal reveal-delay-2">
+        <div class="pillar-num">2</div>
+        <div class="pillar-body">
+          <h3>Processo comercial previsível</h3>
+          <p>Funil visual, etapas definidas e follow-ups sem falha — sem depender de planilhas.</p>
+        </div>
+      </div>
+      <div class="pillar-card reveal reveal-delay-3">
+        <div class="pillar-num">3</div>
+        <div class="pillar-body">
+          <h3>Produtividade com automações</h3>
+          <p>Regras inteligentes que executam o trabalho operacional, liberando o time para vender.</p>
+        </div>
+      </div>
+      <div class="pillar-card reveal reveal-delay-4">
+        <div class="pillar-num">4</div>
+        <div class="pillar-body">
+          <h3>Atendimento em múltiplos canais</h3>
+          <p>WhatsApp, e-mail, chamadas e chat centralizados — histórico preservado em qualquer troca.</p>
+        </div>
+      </div>
+      <div class="pillar-card reveal reveal-delay-5">
+        <div class="pillar-num">5</div>
+        <div class="pillar-body">
+          <h3>Decisões com dados reais</h3>
+          <p>Dashboard, relatórios e ROI em tempo real — dados que viram ação, não só slides.</p>
+        </div>
+      </div>
+    </div>
+
+
+    </div>
+  </section>
+</div>
+
+<!-- ══ PÁGINA 5 — FUNIL COMERCIAL ══ -->
+<div class="page page-start">
+  <section>
+    <div class="container">
+
+      <div class="funnel-wrap">
+        <p class="funnel-label">Funil Comercial — Da Entrada ao Resultado</p>
+        <div class="funnel-stages">
+          <div class="funnel-stage" style="width:100%;background:rgba(124,63,228,0.18);">
+            <div class="funnel-stage-left"><div class="funnel-dot"></div><div><div class="funnel-stage-name">Captação</div><div class="funnel-stage-desc">Formulários, canais digitais e indicações</div></div></div>
+            <span class="funnel-badge">Entrada de leads</span>
+          </div>
+          <div class="funnel-stage" style="width:88%;background:rgba(124,63,228,0.15);">
+            <div class="funnel-stage-left"><div class="funnel-dot"></div><div><div class="funnel-stage-name">Qualificação</div><div class="funnel-stage-desc">Pontuação, segmentação e distribuição automática</div></div></div>
+            <span class="funnel-badge">Leads qualificados</span>
+          </div>
+          <div class="funnel-stage" style="width:74%;background:rgba(124,63,228,0.12);">
+            <div class="funnel-stage-left"><div class="funnel-dot"></div><div><div class="funnel-stage-name">Negociação</div><div class="funnel-stage-desc">Funil visual, follow-ups e registro de interações</div></div></div>
+            <span class="funnel-badge">Oportunidades ativas</span>
+          </div>
+          <div class="funnel-stage" style="width:60%;background:rgba(124,63,228,0.10);">
+            <div class="funnel-stage-left"><div class="funnel-dot"></div><div><div class="funnel-stage-name">Proposta</div><div class="funnel-stage-desc">Apresentação, produtos e condições comerciais</div></div></div>
+            <span class="funnel-badge">Em proposta</span>
+          </div>
+          <div class="funnel-stage" style="width:46%;background:rgba(124,63,228,0.14);border:1px solid rgba(124,63,228,0.3);">
+            <div class="funnel-stage-left"><div class="funnel-dot" style="background:#b891f8;"></div><div><div class="funnel-stage-name">Fechamento</div><div class="funnel-stage-desc">Contrato, pagamento e onboarding</div></div></div>
+            <span class="funnel-badge" style="background:rgba(124,63,228,0.3);color:#b891f8;">Conversão</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px;">
+        <p class="section-label" style="margin-bottom: 16px; text-align: center;">Estrutura Modular — 5 Grupos | 16 Módulos</p>
+        <div class="groups-index">
+          <div class="group-index-card">
+            <div class="group-index-hdr">Operação Comercial</div>
+            <div class="group-index-mods">
+              <span class="group-index-mod">Dashboard</span>
+              <span class="group-index-mod">Leads</span>
+              <span class="group-index-mod">Contatos</span>
+              <span class="group-index-mod">Tarefas</span>
+              <span class="group-index-mod">Calendário</span>
+            </div>
+          </div>
+          <div class="group-index-card">
+            <div class="group-index-hdr">Comunicação &amp; Atendimento</div>
+            <div class="group-index-mods">
+              <span class="group-index-mod">Chat</span>
+              <span class="group-index-mod">E-mail</span>
+              <span class="group-index-mod">Chamadas</span>
+            </div>
+          </div>
+          <div class="group-index-card">
+            <div class="group-index-hdr">Inteligência &amp; IA</div>
+            <div class="group-index-mods">
+              <span class="group-index-mod">IA</span>
+              <span class="group-index-mod">Rastreamento</span>
+              <span class="group-index-mod">ROI Dashboard</span>
+            </div>
+          </div>
+          <div class="group-index-card">
+            <div class="group-index-hdr">Gestão &amp; Análise</div>
+            <div class="group-index-mods">
+              <span class="group-index-mod">Vendedores</span>
+              <span class="group-index-mod">Relatórios</span>
+              <span class="group-index-mod">Produtos</span>
+            </div>
+          </div>
+          <div class="group-index-card">
+            <div class="group-index-hdr">Automação &amp; Configuração</div>
+            <div class="group-index-mods">
+              <span class="group-index-mod">Workflows</span>
+              <span class="group-index-mod">Configurações</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- ══ PÁGINA 6 — GRUPO 01 parte 1 ══ -->
+<div class="page page-start">
+  <section class="group-section">
+    <div class="container">
+      <div class="group-header reveal">
+      <div class="group-accent-bar"></div>
+      <div class="group-header-text">
+        <p class="section-label">Grupo 01</p>
+        <h2 class="section-title" id="group-01">Operação Comercial</h2>
+        <p class="section-sub">As ferramentas centrais para gerenciar o ciclo comercial do início ao fim.</p>
+      </div>
+    </div>
+      <div class="modules-grid cols-3">
+        <div class="module-card reveal reveal-delay-1">
+        <div class="module-card-hdr">
+          <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9a5ef5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+          <h3 class="module-card-title">Dashboard</h3>
+        </div>
+        <div class="module-card-body">
+          <p class="module-desc">Centraliza a visão rápida da operação com KPIs, widgets de produtividade e tendências por período.</p>
+          <div class="module-bullets">
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Panorama de vendas, atendimento e pendências do dia</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>KPIs configuráveis para diferentes perfis de usuário</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Tendências de evolução por período para leitura rápida</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Oportunidades em risco visíveis sem consolidação manual</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Widgets de produtividade para foco no que importa</span></div>
+          </div>
+          <div class="module-value"><span class="value-arrow">↑</span><span>Liderança e time alinhados com o mesmo cenário em tempo real</span></div>
+        </div>
+      </div><div class="module-card reveal reveal-delay-2">
+        <div class="module-card-hdr">
+          <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9a5ef5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></div>
+          <h3 class="module-card-title">Leads</h3>
+        </div>
+        <div class="module-card-body">
+          <p class="module-desc">Pipeline visual com evolução de oportunidades em kanban, lista ou timeline — histórico completo de cada lead.</p>
+          <div class="module-bullets">
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Pipeline visual em kanban, lista e timeline</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Qualificar e distribuir oportunidades por vendedor ou equipe</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Histórico completo de interações e próximos passos</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Medir conversão por fase e identificar pontos de perda</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Priorizar oportunidades com maior potencial de fechamento</span></div>
+          </div>
+          <div class="module-value"><span class="value-arrow">↑</span><span>Mais controle sobre pipeline e previsibilidade comercial</span></div>
+        </div>
+      </div><div class="module-card reveal reveal-delay-3">
+        <div class="module-card-hdr">
+          <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9a5ef5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3 class="module-card-title">Contatos</h3>
+        </div>
+        <div class="module-card-body">
+          <p class="module-desc">Base única de relacionamento, sem duplicidade, com segmentação por perfil e origem.</p>
+          <div class="module-bullets">
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Base única de contatos com histórico completo de relacionamento</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Detecção e tratamento de duplicidades automaticamente</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Segmentação por perfil, origem, interesse e estágio</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Exportação de dados para ações estratégicas</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Vínculo direto com leads, tarefas e comunicações</span></div>
+          </div>
+          <div class="module-value"><span class="value-arrow">↑</span><span>Comunicação mais contextualizada, personalizada e eficaz</span></div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══ PÁGINA 7 — GRUPO 01 parte 2 ══ -->
+<div class="page page-start">
+  <section class="group-section">
+    <div class="container">
+      <div class="group-header" style="margin-bottom:28px;">
+        <div class="group-accent-bar"></div>
+        <div class="group-header-text">
+          <p class="section-label">Grupo 01 — continuação</p>
+          <h2 class="section-title" style="font-size:clamp(20px,2.5vw,28px);">Operação Comercial</h2>
+        </div>
+      </div>
+      <div class="modules-grid cols-2">
+        <div class="module-card reveal reveal-delay-4">
+        <div class="module-card-hdr">
+          <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9a5ef5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3 class="module-card-title">Tarefas</h3>
+        </div>
+        <div class="module-card-body">
+          <p class="module-desc">Execução comercial diária em lista, kanban e timeline — com recorrência e subtarefas.</p>
+          <div class="module-bullets">
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Visualização em lista, kanban e timeline</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Tarefas recorrentes para cadências de relacionamento</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Subtarefas para dividir ações complexas entre o time</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Monitorar abertas, concluídas e em atraso</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Comentários e colaboração entre responsáveis</span></div>
+          </div>
+          <div class="module-value"><span class="value-arrow">↑</span><span>Menos oportunidades esquecidas e maior cadência de follow-up</span></div>
+        </div>
+      </div><div class="module-card reveal reveal-delay-5">
+        <div class="module-card-hdr">
+          <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9a5ef5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <h3 class="module-card-title">Calendário</h3>
+        </div>
+        <div class="module-card-body">
+          <p class="module-desc">Agenda unificada com link de agendamento público, integração externa e bloqueios de horário.</p>
+          <div class="module-bullets">
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Link de agendamento público para compartilhar por qualquer canal</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Integração com provedores de calendário externos</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Bloqueios de horário e gerenciamento de disponibilidade</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Cancelamento e reagendamento sem troca de mensagens</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Compromissos vinculados ao fluxo da operação</span></div>
+          </div>
+          <div class="module-value"><span class="value-arrow">↑</span><span>Acelera avanço de negociações e reduz no-show</span></div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══ PÁGINA 8 — GRUPO 02 ══ -->
+<div class="page page-start">
+  <section class="group-section">
+  <div class="container">
+    <div class="group-header reveal">
+      <div class="group-accent-bar"></div>
+      <div class="group-header-text">
+        <p class="section-label">Grupo 02</p>
+        <h2 class="section-title" id="group-02">Comunicação &amp; Atendimento</h2>
+        <p class="section-sub">Todos os canais de contato centralizados com histórico preservado.</p>
+      </div>
+    </div>
+    <div class="modules-grid cols-3">
+      <div class="module-card reveal reveal-delay-1">
+        <div class="module-card-hdr">
+          <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9a5ef5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h3 class="module-card-title">Chat</h3>
+        </div>
+        <div class="module-card-body">
+          <p class="module-desc">Atendimento conversacional centralizado — WhatsApp, histórico preservado e templates de resposta.</p>
+          <div class="module-bullets">
+            <div class="module-bullet"><span class="bullet-dot"></span><span>WhatsApp integrado com histórico completo de conversas</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Templates para padronizar e agilizar respostas</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Fila de atendimento organizada com pendências visíveis</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Histórico preservado mesmo com troca de responsável</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Vinculação automática de conversas a contatos e leads</span></div>
+          </div>
+          <div class="module-value"><span class="value-arrow">↑</span><span>Atendimento fluido, profissional e sem perda de contexto</span></div>
+        </div>
+      </div>
+      <div class="module-card reveal reveal-delay-2">
+        <div class="module-card-hdr">
+          <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9a5ef5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg></div>
+          <h3 class="module-card-title">E-mail</h3>
+        </div>
+        <div class="module-card-body">
+          <p class="module-desc">Comunicação por e-mail integrada ao CRM, vinculada a contatos e atividades comerciais.</p>
+          <div class="module-bullets">
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Envio e recebimento de e-mails dentro do CRM</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Histórico de e-mails vinculado a contatos e leads</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Templates de e-mail para comunicações padronizadas</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Rastreamento de abertura e engajamento</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Integração com caixas de entrada externas</span></div>
+          </div>
+          <div class="module-value"><span class="value-arrow">↑</span><span>Comunicação organizada sem sair do contexto da negociação</span></div>
+        </div>
+      </div>
+      <div class="module-card reveal reveal-delay-3">
+        <div class="module-card-hdr">
+          <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9a5ef5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <h3 class="module-card-title">Chamadas</h3>
+        </div>
+        <div class="module-card-body">
+          <p class="module-desc">Histórico de ligações, gravação de chamadas e discagem via Directcall com filtros avançados.</p>
+          <div class="module-bullets">
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Histórico completo de ligações por contato e período</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Gravação de chamadas para revisão e treinamento</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Discagem via Directcall integrada ao CRM</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Filtros avançados por status, duração e resultado</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Registro automático de ligações no histórico do contato</span></div>
+          </div>
+          <div class="module-value"><span class="value-arrow">↑</span><span>Mais controle e rastreabilidade sobre cada conversa comercial</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ══ PÁGINA 9 — GRUPO 03 ══ -->
+<div class="page page-start">
+  <section class="group-section">
+  <div class="container">
+    <div class="group-header reveal">
+      <div class="group-accent-bar"></div>
+      <div class="group-header-text">
+        <p class="section-label">Grupo 03</p>
+        <h2 class="section-title" id="group-03">Inteligência &amp; IA</h2>
+        <p class="section-sub">Recursos de análise, rastreamento e inteligência artificial para decisões mais rápidas.</p>
+      </div>
+    </div>
+    <div class="modules-grid cols-3">
+      <div class="module-card reveal reveal-delay-1">
+        <div class="module-card-hdr">
+          <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9a5ef5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+          <h3 class="module-card-title">IA</h3>
+        </div>
+        <div class="module-card-body">
+          <p class="module-desc">Assistentes, funções, base documental e tabulações — recursos em constante evolução para apoio à operação.</p>
+          <div class="module-bullets">
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Assistentes de IA configuráveis para necessidades do negócio</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Base documental para suporte a respostas e análises</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Tabulações automáticas de atendimentos e interações</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Apoio à produção de conteúdos, respostas e análises</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Recursos em evolução contínua integrados à plataforma</span></div>
+          </div>
+          <div class="module-value"><span class="value-arrow">↑</span><span>Mais produtividade com menor esforço operacional</span></div>
+        </div>
+      </div>
+      <div class="module-card reveal reveal-delay-2">
+        <div class="module-card-hdr">
+          <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9a5ef5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <h3 class="module-card-title">Rastreamento</h3>
+        </div>
+        <div class="module-card-body">
+          <p class="module-desc">Campanhas e links rastreáveis com UTM para atribuição precisa da origem de cada demanda.</p>
+          <div class="module-bullets">
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Criação de links rastreáveis com parâmetros UTM</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Atribuição de origem de leads e oportunidades geradas</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Comparar desempenho entre canais de aquisição</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Acompanhar campanhas com controle de performance</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Integração de captação de demanda com funil de vendas</span></div>
+          </div>
+          <div class="module-value"><span class="value-arrow">↑</span><span>Mais clareza sobre o que gera resultado real — e o que não gera</span></div>
+        </div>
+      </div>
+      <div class="module-card reveal reveal-delay-3">
+        <div class="module-card-hdr">
+          <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9a5ef5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <h3 class="module-card-title">ROI Dashboard</h3>
+        </div>
+        <div class="module-card-body">
+          <p class="module-desc">KPIs de resultado financeiro, tendência por período e retorno por recorte de equipe ou canal.</p>
+          <div class="module-bullets">
+            <div class="module-bullet"><span class="bullet-dot"></span><span>KPIs financeiros e de resultado em painel dedicado</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Tendências de resultado por período comparativo</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Retorno por recorte de equipe, canal ou campanha</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Medir retorno sobre investimento em aquisição de leads</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Apoiar rituais de gestão com dados confiáveis e atualizados</span></div>
+          </div>
+          <div class="module-value"><span class="value-arrow">↑</span><span>Decisão mais rápida, segura e orientada por dados financeiros</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ══ PÁGINA 10 — GRUPO 04 ══ -->
+<div class="page page-start">
+  <section class="group-section">
+  <div class="container">
+    <div class="group-header reveal">
+      <div class="group-accent-bar"></div>
+      <div class="group-header-text">
+        <p class="section-label">Grupo 04</p>
+        <h2 class="section-title" id="group-04">Gestão &amp; Análise</h2>
+        <p class="section-sub">Visibilidade de performance, análise de equipe e catálogo comercial estruturado.</p>
+      </div>
+    </div>
+    <div class="modules-grid cols-3">
+      <div class="module-card reveal reveal-delay-1">
+        <div class="module-card-hdr">
+          <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9a5ef5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
+          <h3 class="module-card-title">Vendedores</h3>
+        </div>
+        <div class="module-card-body">
+          <p class="module-desc">Ranking e performance individual, conversão por vendedor e SLA de atendimento comparativo.</p>
+          <div class="module-bullets">
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Ranking de performance com visão individual e comparativa</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Taxa de conversão por vendedor e por período</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>SLA de atendimento e tempo de resposta monitorados</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Identificar pontos de melhoria por profissional</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Comparativo de equipes para gestão orientada a dados</span></div>
+          </div>
+          <div class="module-value"><span class="value-arrow">↑</span><span>Gestão de pessoas mais justa, clara e orientada a resultado</span></div>
+        </div>
+      </div>
+      <div class="module-card reveal reveal-delay-2">
+        <div class="module-card-hdr">
+          <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9a5ef5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <h3 class="module-card-title">Relatórios</h3>
+        </div>
+        <div class="module-card-body">
+          <p class="module-desc">Indicadores de gestão, histórico, gargalos de conversão e painéis analíticos para toda a operação.</p>
+          <div class="module-bullets">
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Painéis analíticos com indicadores de gestão configuráveis</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Histórico de performance para análises comparativas</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Gargalos de conversão identificados no funil</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Exportação de relatórios para apresentações e reuniões</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Dados consolidados sem dependência de planilhas externas</span></div>
+          </div>
+          <div class="module-value"><span class="value-arrow">↑</span><span>Gestão baseada em dados reais, não em percepções</span></div>
+        </div>
+      </div>
+      <div class="module-card reveal reveal-delay-3">
+        <div class="module-card-hdr">
+          <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9a5ef5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+          <h3 class="module-card-title">Produtos</h3>
+        </div>
+        <div class="module-card-body">
+          <p class="module-desc">Catálogo comercial com categorias, SKU, status e importação/exportação para apoiar propostas e negociações.</p>
+          <div class="module-bullets">
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Catálogo organizado por categorias e SKU</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Importação e exportação de produtos em massa</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Controle de status ativo/inativo por item</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Portfólio disponível em tempo real para o time comercial</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Padronizar base de oferta em toda a operação</span></div>
+          </div>
+          <div class="module-value"><span class="value-arrow">↑</span><span>Maior clareza na argumentação e consistência nas propostas</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ══ PÁGINA 11 — GRUPO 05 ══ -->
+<div class="page page-start">
+  <section class="group-section">
+  <div class="container">
+    <div class="group-header reveal">
+      <div class="group-accent-bar"></div>
+      <div class="group-header-text">
+        <p class="section-label">Grupo 05</p>
+        <h2 class="section-title" id="group-05">Automação &amp; Configuração</h2>
+        <p class="section-sub">Escale a operação com automações e configure o CRM conforme sua empresa.</p>
+      </div>
+    </div>
+    <div class="modules-grid cols-2">
+      <div class="module-card reveal reveal-delay-1">
+        <div class="module-card-hdr">
+          <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9a5ef5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <h3 class="module-card-title">Workflows</h3>
+        </div>
+        <div class="module-card-body">
+          <p class="module-desc">Automações operacionais com gatilhos, ações, histórico de execução e builder visual intuitivo.</p>
+          <div class="module-bullets">
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Builder visual para criação de automações sem código</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Gatilhos por evento, condição ou mudança de etapa</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Ações automáticas: mensagens, tarefas, movimentações</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Histórico de execução para auditoria e ajuste</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Reduzir dependência de controle manual no dia a dia</span></div>
+          </div>
+          <div class="module-value"><span class="value-arrow">↑</span><span>Ganho de produtividade em escala com menos falhas operacionais</span></div>
+        </div>
+      </div>
+      <div class="module-card reveal reveal-delay-2">
+        <div class="module-card-hdr">
+          <div class="module-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9a5ef5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+          <h3 class="module-card-title">Configurações</h3>
+        </div>
+        <div class="module-card-body">
+          <p class="module-desc">Parametrização completa — campos, funil, WhatsApp, integrações, usuários e permissões de acesso.</p>
+          <div class="module-bullets">
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Personalizar funis, etapas e campos conforme o negócio</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Configurar WhatsApp, integrações e canais externos</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Gerenciar usuários, equipes e níveis de permissão</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Definir motivos, atividades e classificações da operação</span></div>
+            <div class="module-bullet"><span class="bullet-dot"></span><span>Evoluir o CRM conforme o time e o negócio crescem</span></div>
+          </div>
+          <div class="module-value"><span class="value-arrow">↑</span><span>Plataforma preparada para crescimento e mudanças do negócio</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ══ PÁGINA 12 — FECHAMENTO ══ -->
+<div class="page page-spread">
+  <section id="closing">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Por que escolher o Plenum CRM?</p>
+      <h2 class="section-title">Benefícios consolidados</h2>
+      <p class="section-sub" style="margin-bottom: 44px;">Tudo o que sua operação precisa para crescer com controle, consistência e inteligência.</p>
+    </div>
+
+    <div class="benefits-grid">
+      <div class="benefit-card reveal reveal-delay-1">
+        <h3>Controle Total da Jornada Comercial</h3>
+        <p>Do lead à receita, cada etapa documentada, rastreada e gerenciada em um único lugar. Menos perda de oportunidades, mais previsibilidade.</p>
+      </div>
+      <div class="benefit-card reveal reveal-delay-2">
+        <h3>Produtividade que Escala com o Time</h3>
+        <p>Automações e workflows que eliminam o trabalho operacional repetitivo, liberando o time para focar em relacionamento e fechamento.</p>
+      </div>
+      <div class="benefit-card reveal reveal-delay-3">
+        <h3>Experiência Consistente para o Cliente</h3>
+        <p>Atendimento contextualizado em todos os canais — sem reiniciar conversa, sem perder histórico, independente de quem atende.</p>
+      </div>
+      <div class="benefit-card reveal reveal-delay-4">
+        <h3>Decisões Baseadas em Dados Reais</h3>
+        <p>Dashboard, relatórios e ROI em tempo real com visibilidade completa de performance individual, por equipe e por período.</p>
+      </div>
+    </div>
+
+    <div class="benefit-full reveal">
+      <h3>Governança, Segurança e Escalabilidade Multiempresa</h3>
+      <p>Estrutura robusta com controle de acessos, separação segura de ambientes e suporte a múltiplas empresas — pronta para crescer junto com o seu negócio.</p>
+    </div>
+
+    <div class="cta-block reveal">
+      <img src="./logo.svg" alt="Plenum" class="cta-logo">
+      <h2>Pronto para transformar sua operação comercial?</h2>
+      <p>Fale com nossa equipe e descubra como o Plenum CRM pode impulsionar seus resultados.</p>
+      <div class="cta-contacts">
+        <div class="cta-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>comercial@plenum.com.br</span>
+        </div>
+        <div class="cta-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>plenum.com.br</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<script>
+  // Intersection Observer for reveal animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
